@@ -1,10 +1,11 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Button } from "@/components/ui/button"
 import useDarkMode from '@/hooks/useDarkMode'
 import Card from '@/components/Card'
 import Link from 'next/link'
+import { Tweet } from 'react-tweet'
 
 // Dummy data for now
 const dummyItems = [
@@ -63,6 +64,9 @@ export default function Home() {
       <h1 className="text-4xl font-bold mb-8">
         Content Curation App
       </h1>
+      <div data-theme="dark">
+        <Tweet id="1845030992282571176" />
+      </div>
       <div className="flex justify-between w-full mb-8">
         <Button onClick={toggleDarkMode}>
           {isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
@@ -71,7 +75,7 @@ export default function Home() {
           <Button>Add New Item</Button>
         </Link>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {items.map(item => (
           <Card 
             key={item.id}
